@@ -3,9 +3,10 @@ from dgl.nn.pytorch.factory import KNNGraph
 
 
 class graphMaster:
-    def __init__(self):
+    def __init__(self, cfg):
+        self.cfg = cfg
         self._graph = None
-        self._kg = KNNGraph(GRAPH_K)
+        self._kg = KNNGraph(self.cfg.GRAPH_K)
 
     def newGraphFromPointCloud(self, pc):
         # Froms graph based on cartesian coordinates
